@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Description helps the search engine understand your website better. -->
+    <meta name="description" content="freeCodeCamp Accessibility Quiz practice project" />
+    <title>Accessibility Quiz</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+        <!-- By giving an element id, you can use that id to target him later down the road. -->
+      <img id="logo" src="https://cdn.freecodecamp.org/platform/universal/fcc_primary.svg">
+      <h1>HTML/CSS Quiz</h1>
+      <nav>
+        <ul>
+            <!-- You can use the href attribute to point toward an id of another element on the same page, and then clicking the anchor will scroll down to the selected element. -->
+          <li><a href="#student-info">INFO</a></li>
+          <li><a href="#html-questions">HTML</a></li>
+          <li><a href="#css-questions">CSS</a></li>
+			  </ul>
+      </nav>
+    </header>
+    <!-- Dividing your page to header and main is important for the search engine. -->
+    <main>
+        <!-- Inside the form, method and action handling the output of the form data. -->
+      <form method="post" action="https://freecodecamp.org/practice-project/accessibility-quiz">
+        <!-- The role attribute is important for screen readers to know the role of each element. -->
+        <!-- aria-labelledby is used to refer an element to previous label on the page, for example here the nav menu. -->
+        <section role="region" aria-labelledby="student-info">
+          <h2 id="student-info">Student Info</h2>
+          <div class="info">
+            <!-- Use the 'for' attribute of a label element to link it to an input element using it's id -->
+            <label for="student-name">Name:</label>
+            <input type="text" name="student-name" id="student-name" />
+          </div> <!-- class: Info -->
+          <div class="info">
+            <label for="student-email">Email:</label>
+            <input type="email" name="student-email" id="student-email" />
+          </div> <!-- class: Info -->
+          <div class="info">
+            <!-- It's possible to make a span with a class for screen readers only, and using CSS to make it happen. -->
+            <label for="birth-date">D.O.B.<span class="sr-only">(Date of Birth)</span></label>
+            <input type="date" name="birth-date" id="birth-date" />
+          </div> <!-- class: Info -->
+        </section>
+        <section role="region" aria-labelledby="html-questions">
+          <h2 id="html-questions">HTML</h2>
+          <div class="question-block">
+            <p>1</p> <!-- This line is used in css to manipulate content. p::before-->
+            <fieldset class="question" name="html-question-one">
+                <!-- Legend element define a caption for the fieldset element. -->
+              <legend>
+                The legend element represents a caption for the content of its
+                parent fieldset element
+              </legend>
+              <ul class="answers-list">
+                <li>
+                  <label for="q1-a1">
+                    <input type="radio" id="q1-a1" name="q1" value="true" />
+                    True
+                  </label>
+                </li>
+                <li>
+                  <label for="q1-a2">
+                    <input type="radio" id="q1-a2" name="q1" value="false" />
+                    False
+                  </label>
+                </li>
+              </ul>
+            </fieldset>
+          </div> <!-- class: question-block -->
+          <div class="question-block">
+            <p>2</p>
+            <fieldset class="question" name="html-question-two">
+              <legend>
+                A label element nesting an input element is required to have a
+                for attribute with the same value as the input's id
+              </legend>
+              <ul class="answers-list">
+                <li>
+                  <label for="q2-a1">
+                    <input type="radio" id="q2-a1" name="q2" value="true" />
+                    True
+                  </label>
+                </li>
+                <li>
+                  <label for="q2-a2">
+                    <input type="radio" id="q2-a2" name="q2" value="false" />
+                    False
+                  </label>
+                </li>
+              </ul>
+            </fieldset>
+          </div> <!-- class: question-block -->
+        </section>
+        <section role="region" aria-labelledby="css-questions">
+          <h2 id="css-questions">CSS</h2>
+          <div class="formrow">
+            <div class="question-block">
+              <label for="customer">Are you a frontend developer?</label>
+            </div> <!-- class: question-block -->
+            <div class="answer">
+              <select name="customer" id="customer" required>
+                <option value="">Select an option</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select>
+            </div> <!-- class: answer -->
+            <div class="question-block">
+              <label for="css-questions">Do you have any questions:</label>
+            </div> <!-- class: question-block -->
+            <div class="answer">
+              <textarea id="css-questions" name="css-questions" rows="5" cols="24" placeholder="Who is flexbox..."></textarea>
+            </div> <!-- class: answer -->
+          </div> <!-- class: formrow -->
+        </section>
+        <button type="submit">Submit</button>
+      </form>
+    </main>
+    <footer>
+        <!-- address is an accessability element used to help the browser understand better. -->
+      <address> 
+        <a href="https://freecodecamp.org">freeCodeCamp</a><br />
+        San Francisco<br />
+        California<br />
+        USA
+      </address>
+    </footer>
+  </body>
+</html>
